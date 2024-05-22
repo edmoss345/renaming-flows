@@ -1,0 +1,896 @@
+{
+    "version": "13",
+    "site": "https://rapidpro-next.idems.international",
+    "flows": [
+        {
+            "expire_after_minutes": 1440,
+            "language": "eng",
+            "localization": {
+                "zul": {
+                    "ad4c9d57-9f28-410b-837e-0fa4e79c3a9f": {
+                        "variables": []
+                    },
+                    "e4ff700f-df18-4a7e-8881-1061830f4cf5": {
+                        "quick_replies": [
+                            "1"
+                        ],
+                        "text": [
+                            "These messages don\u2019t seem to be working. When you are ready to keep going, press 1. "
+                        ]
+                    }
+                }
+            },
+            "metadata": {},
+            "name": "aaahook_message",
+            "nodes": [
+                {
+                    "actions": [
+                        {
+                            "attachments": [],
+                            "quick_replies": [
+                                "1"
+                            ],
+                            "templating": {
+                                "template": {
+                                    "name": "no_response",
+                                    "uuid": "75bb2c5b-7492-4f04-b6da-63bf79bce24f"
+                                },
+                                "uuid": "ad4c9d57-9f28-410b-837e-0fa4e79c3a9f",
+                                "variables": []
+                            },
+                            "text": "These messages don\u2019t seem to be working. When you are ready to keep going, press 1. ",
+                            "type": "send_msg",
+                            "uuid": "e4ff700f-df18-4a7e-8881-1061830f4cf5"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": "ead4a035-5a1b-4108-8bd3-e46983b28335",
+                            "uuid": "95cb941e-f4b9-4603-9a53-f8dcdd838e87"
+                        }
+                    ],
+                    "uuid": "3b1eb143-b256-49ac-96b6-86813221e620"
+                },
+                {
+                    "actions": [
+                        {
+                            "groups": [
+                                {
+                                    "name": "passive drop out",
+                                    "uuid": "262c8dd7-0161-4136-8ea2-aa5863957262"
+                                }
+                            ],
+                            "type": "add_contact_groups",
+                            "uuid": "7ad42398-8115-4c3f-9696-2553b862f877"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": "f8183b26-7f98-4eed-9711-ac706abeaa00",
+                            "uuid": "e9835bc8-28d9-47b6-9b98-6676cb03486f"
+                        }
+                    ],
+                    "uuid": "ead4a035-5a1b-4108-8bd3-e46983b28335"
+                },
+                {
+                    "actions": [
+                        {
+                            "field": {
+                                "key": "hook_message",
+                                "name": "hook message"
+                            },
+                            "type": "set_contact_field",
+                            "uuid": "42944d93-dc1c-4b8c-bb9f-1c22ff7fedf3",
+                            "value": "@(fields.hook_message & now())"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "c6759d20-952c-4160-97f7-32cac70204a0"
+                        }
+                    ],
+                    "uuid": "f8183b26-7f98-4eed-9711-ac706abeaa00"
+                }
+            ],
+            "spec_version": "13.1.0",
+            "type": "messaging",
+            "uuid": "faa71073-9dd8-4d39-95cf-e06fadf96aef",
+            "revision": 18
+        },
+        {
+            "expire_after_minutes": 1440,
+            "language": "eng",
+            "localization": {
+                "zul": {}
+            },
+            "metadata": {},
+            "name": "aaahook_message_wrapper",
+            "nodes": [
+                {
+                    "actions": [],
+                    "exits": [
+                        {
+                            "destination_uuid": "b01bd1a3-aa96-464e-9bf9-a0752c53007e",
+                            "uuid": "877f5e4c-99c5-4be7-98f4-cbfd3f855f83"
+                        },
+                        {
+                            "destination_uuid": "a2629ee4-24da-4511-b475-1b9831736615",
+                            "uuid": "33c27975-2d4c-4cd7-b9fa-a09a9f32ebd0"
+                        },
+                        {
+                            "destination_uuid": "872096f8-58dd-4c8f-b983-297d220deea3",
+                            "uuid": "94efe589-917f-4fb9-8e9f-a8cf57c655c1"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "dd7e5b78-96dd-43cf-ad39-95daff33b5d6"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "781f9e39-2382-4b3e-9d24-2aace4ccabbe",
+                                    "rct 5 day"
+                                ],
+                                "category_uuid": "9f365a74-4020-4eef-862f-6ce15bee66f8",
+                                "type": "has_group",
+                                "uuid": "1a048064-764f-4b0b-b4ba-92defb0df47c"
+                            },
+                            {
+                                "arguments": [
+                                    "436e43a8-9e98-43fb-b8fd-5332c2dba6d1",
+                                    "rct booster"
+                                ],
+                                "category_uuid": "3c713803-499e-4bc9-b3f2-9f3df29179b8",
+                                "type": "has_group",
+                                "uuid": "eaa667a8-3665-4302-a20c-7a257ecfe9b0"
+                            },
+                            {
+                                "arguments": [
+                                    "c1413233-6836-4cf2-9894-a002146cd09a",
+                                    "share"
+                                ],
+                                "category_uuid": "03670cb7-3195-4889-a079-0255de8d1383",
+                                "type": "has_group",
+                                "uuid": "65af569e-521f-4217-8d1a-46bb7a536c8a"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "877f5e4c-99c5-4be7-98f4-cbfd3f855f83",
+                                "name": "rct 5 day",
+                                "uuid": "9f365a74-4020-4eef-862f-6ce15bee66f8"
+                            },
+                            {
+                                "exit_uuid": "33c27975-2d4c-4cd7-b9fa-a09a9f32ebd0",
+                                "name": "rct booster",
+                                "uuid": "3c713803-499e-4bc9-b3f2-9f3df29179b8"
+                            },
+                            {
+                                "exit_uuid": "94efe589-917f-4fb9-8e9f-a8cf57c655c1",
+                                "name": "share",
+                                "uuid": "03670cb7-3195-4889-a079-0255de8d1383"
+                            },
+                            {
+                                "exit_uuid": "dd7e5b78-96dd-43cf-ad39-95daff33b5d6",
+                                "name": "Other",
+                                "uuid": "3c74a7f8-4393-495c-a994-279a128391b8"
+                            }
+                        ],
+                        "default_category_uuid": "3c74a7f8-4393-495c-a994-279a128391b8",
+                        "operand": "@contact.groups",
+                        "result_name": "",
+                        "type": "switch"
+                    },
+                    "uuid": "7e9452a7-7dbd-402d-924e-c136d58e8d94"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaahook_message",
+                                "uuid": "faa71073-9dd8-4d39-95cf-e06fadf96aef"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "b4c5cad9-db35-4b5c-b65a-0d1b34f71048"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "371fe58f-6862-46a6-ad93-0931f9c3210f"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "932c1d96-49bc-43dc-bf98-e1bbc2ff05fc"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "4df9ab9a-4966-46e5-9194-760dd6b0c2c4",
+                                "type": "has_only_text",
+                                "uuid": "a9beb68e-411c-4e63-8f6f-e38bd1035862"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "1b1b99ea-527c-4050-b648-bec01d4d727d",
+                                "type": "has_only_text",
+                                "uuid": "dfbeab6d-5dee-42e6-b8a3-16c41cb1af3c"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "371fe58f-6862-46a6-ad93-0931f9c3210f",
+                                "name": "Complete",
+                                "uuid": "4df9ab9a-4966-46e5-9194-760dd6b0c2c4"
+                            },
+                            {
+                                "exit_uuid": "932c1d96-49bc-43dc-bf98-e1bbc2ff05fc",
+                                "name": "Expired",
+                                "uuid": "1b1b99ea-527c-4050-b648-bec01d4d727d"
+                            }
+                        ],
+                        "default_category_uuid": "1b1b99ea-527c-4050-b648-bec01d4d727d",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "b01bd1a3-aa96-464e-9bf9-a0752c53007e"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaahook_message",
+                                "uuid": "faa71073-9dd8-4d39-95cf-e06fadf96aef"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "2312f1d4-9b27-419f-bfd1-05518f8ebb09"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "9e5c8327-9415-4d03-bb98-a68b683676cc"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "aa2239e5-dc16-4f0f-827c-dee551c43b8c"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "e405e368-a7d7-4b07-86db-1b923999b3c4",
+                                "type": "has_only_text",
+                                "uuid": "ede58446-3bdc-45f9-bdec-a71834d84b11"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "5366c10c-0963-454d-94dd-69de48d67f1f",
+                                "type": "has_only_text",
+                                "uuid": "5d8c9422-43f1-49e5-bd4b-4fe414d88d04"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "9e5c8327-9415-4d03-bb98-a68b683676cc",
+                                "name": "Complete",
+                                "uuid": "e405e368-a7d7-4b07-86db-1b923999b3c4"
+                            },
+                            {
+                                "exit_uuid": "aa2239e5-dc16-4f0f-827c-dee551c43b8c",
+                                "name": "Expired",
+                                "uuid": "5366c10c-0963-454d-94dd-69de48d67f1f"
+                            }
+                        ],
+                        "default_category_uuid": "5366c10c-0963-454d-94dd-69de48d67f1f",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "a2629ee4-24da-4511-b475-1b9831736615"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaahook_message",
+                                "uuid": "faa71073-9dd8-4d39-95cf-e06fadf96aef"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "866c28e3-d349-446c-b589-216198ee4136"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "1610418f-7568-4be9-ace5-5959c5e6eda8"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "0c809d18-f1ab-41e2-8402-456aa2d16ee5"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "6fec64a0-7719-44e1-b5ae-b69fde591971",
+                                "type": "has_only_text",
+                                "uuid": "fcf48027-9549-4ef8-810e-3bb74700a2a9"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "23b0816b-bc45-4d68-a831-4f31338e7a37",
+                                "type": "has_only_text",
+                                "uuid": "1ccfd691-e180-48b3-af8b-514d545401ad"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "1610418f-7568-4be9-ace5-5959c5e6eda8",
+                                "name": "Complete",
+                                "uuid": "6fec64a0-7719-44e1-b5ae-b69fde591971"
+                            },
+                            {
+                                "exit_uuid": "0c809d18-f1ab-41e2-8402-456aa2d16ee5",
+                                "name": "Expired",
+                                "uuid": "23b0816b-bc45-4d68-a831-4f31338e7a37"
+                            }
+                        ],
+                        "default_category_uuid": "23b0816b-bc45-4d68-a831-4f31338e7a37",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "872096f8-58dd-4c8f-b983-297d220deea3"
+                }
+            ],
+            "spec_version": "13.1.0",
+            "type": "messaging",
+            "uuid": "fcfc61f6-1c8e-45bf-8706-5d8d3fc7c5e1",
+            "revision": 18
+        },
+        {
+            "expire_after_minutes": 1440,
+            "language": "eng",
+            "localization": {
+                "zul": {}
+            },
+            "metadata": {},
+            "name": "aaacampaign_wrapper",
+            "nodes": [
+                {
+                    "actions": [],
+                    "exits": [
+                        {
+                            "destination_uuid": "5a51f063-6969-44ad-be9c-14ac6fc26bdb",
+                            "uuid": "760e57dd-42b0-42f2-b2cf-b04ec6dff4b9"
+                        },
+                        {
+                            "destination_uuid": "2e5f492d-e3cf-4e5a-a60b-64b148ef95c9",
+                            "uuid": "a4919fef-b7a7-46b1-9b20-f7531b69371c"
+                        },
+                        {
+                            "destination_uuid": "b3932b90-eb9b-4b23-a11b-5004d91734df",
+                            "uuid": "7e89ccf4-2054-40fb-a9d8-e3f06e57a486"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "95ee5051-edc2-47a1-8202-d06b91c07b09"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "781f9e39-2382-4b3e-9d24-2aace4ccabbe",
+                                    "rct 5 day"
+                                ],
+                                "category_uuid": "f36e1930-ea29-488c-9f0e-adffe98c22e1",
+                                "type": "has_group",
+                                "uuid": "3d52b43e-a38a-4ba1-bc65-ec5b77f02138"
+                            },
+                            {
+                                "arguments": [
+                                    "436e43a8-9e98-43fb-b8fd-5332c2dba6d1",
+                                    "rct booster"
+                                ],
+                                "category_uuid": "e93f9feb-2802-4173-82e0-81ddf7d211db",
+                                "type": "has_group",
+                                "uuid": "262ce80a-4d92-462e-9938-b917cf7ca9e6"
+                            },
+                            {
+                                "arguments": [
+                                    "c1413233-6836-4cf2-9894-a002146cd09a",
+                                    "share"
+                                ],
+                                "category_uuid": "912d9b12-4621-4c45-92de-9ff9123013ae",
+                                "type": "has_group",
+                                "uuid": "3f22b317-12ac-4fbb-b819-1a2d90083220"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "760e57dd-42b0-42f2-b2cf-b04ec6dff4b9",
+                                "name": "rct 5 day",
+                                "uuid": "f36e1930-ea29-488c-9f0e-adffe98c22e1"
+                            },
+                            {
+                                "exit_uuid": "a4919fef-b7a7-46b1-9b20-f7531b69371c",
+                                "name": "rct booster",
+                                "uuid": "e93f9feb-2802-4173-82e0-81ddf7d211db"
+                            },
+                            {
+                                "exit_uuid": "7e89ccf4-2054-40fb-a9d8-e3f06e57a486",
+                                "name": "share",
+                                "uuid": "912d9b12-4621-4c45-92de-9ff9123013ae"
+                            },
+                            {
+                                "exit_uuid": "95ee5051-edc2-47a1-8202-d06b91c07b09",
+                                "name": "Other",
+                                "uuid": "5d89a7dd-2484-4668-b08f-8326246168b9"
+                            }
+                        ],
+                        "default_category_uuid": "5d89a7dd-2484-4668-b08f-8326246168b9",
+                        "operand": "@contact.groups",
+                        "result_name": "",
+                        "type": "switch"
+                    },
+                    "uuid": "eb9503da-79f5-4b88-8e7b-b6f34818c03a"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaacampaign",
+                                "uuid": "73a5d47c-a176-474f-98e4-d395e3c37bca"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "e4634346-34ee-4467-9b6e-e32d98f5593c"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "0f98ab31-2b3c-4058-b01d-1eb78352a962"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "0858df39-4b0a-4d18-8dbb-d9f34442ec9f"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "99217c6d-6b2e-4b47-8a3e-b920022beaae",
+                                "type": "has_only_text",
+                                "uuid": "5d838c8d-1aa6-48e7-b533-a9a2c33f9475"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "038130b4-d124-4916-a417-3f412f5866f5",
+                                "type": "has_only_text",
+                                "uuid": "144ecaca-aae5-4347-b82f-b7334ff4cf72"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "0f98ab31-2b3c-4058-b01d-1eb78352a962",
+                                "name": "Complete",
+                                "uuid": "99217c6d-6b2e-4b47-8a3e-b920022beaae"
+                            },
+                            {
+                                "exit_uuid": "0858df39-4b0a-4d18-8dbb-d9f34442ec9f",
+                                "name": "Expired",
+                                "uuid": "038130b4-d124-4916-a417-3f412f5866f5"
+                            }
+                        ],
+                        "default_category_uuid": "038130b4-d124-4916-a417-3f412f5866f5",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "5a51f063-6969-44ad-be9c-14ac6fc26bdb"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaacampaign",
+                                "uuid": "73a5d47c-a176-474f-98e4-d395e3c37bca"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "a9521d1d-57c5-41f4-b411-1a763fe3b0cf"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "7c7498e2-a01e-4dd5-a9ad-8b6a8d97105c"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "2c87a3cd-4596-4342-9ec0-ecd6181b4dba"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "abeaa80f-7b24-4d70-8838-e71e5e70fa7c",
+                                "type": "has_only_text",
+                                "uuid": "2fb79f07-34f2-4b7f-bae4-a15037a39912"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "956e56f9-aef5-4d9f-9691-1947ebb0cb39",
+                                "type": "has_only_text",
+                                "uuid": "64bc1216-b09e-4282-af25-2bd234638f99"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "7c7498e2-a01e-4dd5-a9ad-8b6a8d97105c",
+                                "name": "Complete",
+                                "uuid": "abeaa80f-7b24-4d70-8838-e71e5e70fa7c"
+                            },
+                            {
+                                "exit_uuid": "2c87a3cd-4596-4342-9ec0-ecd6181b4dba",
+                                "name": "Expired",
+                                "uuid": "956e56f9-aef5-4d9f-9691-1947ebb0cb39"
+                            }
+                        ],
+                        "default_category_uuid": "956e56f9-aef5-4d9f-9691-1947ebb0cb39",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "2e5f492d-e3cf-4e5a-a60b-64b148ef95c9"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaacampaign",
+                                "uuid": "73a5d47c-a176-474f-98e4-d395e3c37bca"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "5048b073-2887-4097-88d3-6ff77b8abf2a"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "6609e781-ca4d-4206-9a69-7862798e2fd8"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "ad9e9f89-cdc8-49e7-885b-9af29f9fd177"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "2d1413c6-0922-4bce-8b42-27f8ce48c786",
+                                "type": "has_only_text",
+                                "uuid": "c8712b1c-5b93-4132-aee0-f52e179764c1"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "1ff72be9-ea60-496c-9451-6527a1a90c0b",
+                                "type": "has_only_text",
+                                "uuid": "520b1427-ba7d-434c-ad93-0d5e94b834c5"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "6609e781-ca4d-4206-9a69-7862798e2fd8",
+                                "name": "Complete",
+                                "uuid": "2d1413c6-0922-4bce-8b42-27f8ce48c786"
+                            },
+                            {
+                                "exit_uuid": "ad9e9f89-cdc8-49e7-885b-9af29f9fd177",
+                                "name": "Expired",
+                                "uuid": "1ff72be9-ea60-496c-9451-6527a1a90c0b"
+                            }
+                        ],
+                        "default_category_uuid": "1ff72be9-ea60-496c-9451-6527a1a90c0b",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "b3932b90-eb9b-4b23-a11b-5004d91734df"
+                }
+            ],
+            "spec_version": "13.1.0",
+            "type": "messaging",
+            "uuid": "a7e25074-6e35-4e9c-a434-8e738dfb0e5f",
+            "revision": 18
+        },
+        {
+            "expire_after_minutes": 1440,
+            "language": "eng",
+            "localization": {
+                "zul": {}
+            },
+            "metadata": {},
+            "name": "aaacampaign",
+            "nodes": [
+                {
+                    "actions": [
+                        {
+                            "name": "timediff",
+                            "type": "set_run_result",
+                            "uuid": "51a3d130-bd9d-42bc-ba88-39a95a331abb",
+                            "value": "@(datetime_diff(split(fields.time_last_goal_completed,\"|\")[0], now(), \"m\"))"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": "dff7ed23-a000-481d-9e5c-c3dcd1900b39",
+                            "uuid": "6df72841-b721-457f-87c2-449488823524"
+                        }
+                    ],
+                    "uuid": "f9ab77ba-869c-4d13-a4f0-cf4b60769932"
+                },
+                {
+                    "actions": [],
+                    "exits": [
+                        {
+                            "destination_uuid": "0f9ec155-67b5-4d47-8103-3c556b547c01",
+                            "uuid": "db95b5c8-a191-4919-9f4c-89743df22d4d"
+                        }
+                    ],
+                    "router": {
+                        "cases": [],
+                        "categories": [
+                            {
+                                "exit_uuid": "db95b5c8-a191-4919-9f4c-89743df22d4d",
+                                "name": "Other",
+                                "uuid": "d1a7c874-f92d-466b-ad4b-645651d767ae"
+                            }
+                        ],
+                        "default_category_uuid": "d1a7c874-f92d-466b-ad4b-645651d767ae",
+                        "operand": "@results.timediff",
+                        "result_name": "",
+                        "type": "switch"
+                    },
+                    "uuid": "dff7ed23-a000-481d-9e5c-c3dcd1900b39"
+                },
+                {
+                    "actions": [
+                        {
+                            "field": {
+                                "key": "from_timed",
+                                "name": "from timed"
+                            },
+                            "type": "set_contact_field",
+                            "uuid": "4fe61cb9-7846-4edf-b285-3e421da304c7",
+                            "value": "yes"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": "006ee159-2f68-4872-a210-99a2b7bef1e4",
+                            "uuid": "1b171cc3-614d-4972-b04d-3c847808b082"
+                        }
+                    ],
+                    "uuid": "0f9ec155-67b5-4d47-8103-3c556b547c01"
+                },
+                {
+                    "actions": [
+                        {
+                            "flow": {
+                                "name": "aaatimed_programme",
+                                "uuid": "72d06b10-444c-4cb2-b4d0-8c210b1cc4c5"
+                            },
+                            "type": "enter_flow",
+                            "uuid": "4beebcba-885b-49e2-a28d-bf657cc02ddd"
+                        }
+                    ],
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "bb6a3bbd-6f6d-4710-a19a-fe8576bb7dea"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "a91b6f3e-50ba-43a0-94f1-2e730679dbc0"
+                        }
+                    ],
+                    "router": {
+                        "cases": [
+                            {
+                                "arguments": [
+                                    "completed"
+                                ],
+                                "category_uuid": "81c05fc9-63be-4924-bb56-3d1614a95cbf",
+                                "type": "has_only_text",
+                                "uuid": "99a5b7ef-4d01-4341-b546-424efbae3c2a"
+                            },
+                            {
+                                "arguments": [
+                                    "expired"
+                                ],
+                                "category_uuid": "f2285d01-69a6-4a30-8125-6010ff343d6d",
+                                "type": "has_only_text",
+                                "uuid": "b13b942c-c086-4616-a642-fb144fb72d25"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "exit_uuid": "bb6a3bbd-6f6d-4710-a19a-fe8576bb7dea",
+                                "name": "Complete",
+                                "uuid": "81c05fc9-63be-4924-bb56-3d1614a95cbf"
+                            },
+                            {
+                                "exit_uuid": "a91b6f3e-50ba-43a0-94f1-2e730679dbc0",
+                                "name": "Expired",
+                                "uuid": "f2285d01-69a6-4a30-8125-6010ff343d6d"
+                            }
+                        ],
+                        "default_category_uuid": "f2285d01-69a6-4a30-8125-6010ff343d6d",
+                        "operand": "@child.run.status",
+                        "type": "switch"
+                    },
+                    "uuid": "006ee159-2f68-4872-a210-99a2b7bef1e4"
+                }
+            ],
+            "spec_version": "13.1.0",
+            "type": "messaging",
+            "uuid": "73a5d47c-a176-474f-98e4-d395e3c37bca",
+            "revision": 18
+        }
+    ],
+    "campaigns": [
+        {
+            "uuid": "921067ff-0a3d-4bfd-895b-1a70a94cffbb",
+            "name": "parenttext_campaign_events",
+            "group": {
+                "uuid": "528f27d1-982d-4ecc-aff8-4c99016a1175",
+                "name": "in program"
+            },
+            "events": [
+                {
+                    "uuid": "108c079d-7c1f-4bf9-8a15-9bb17586d665",
+                    "offset": 2850,
+                    "unit": "M",
+                    "event_type": "F",
+                    "delivery_hour": -1,
+                    "message": null,
+                    "relative_to": {
+                        "label": "last interaction",
+                        "key": "last_interaction"
+                    },
+                    "start_mode": "I",
+                    "flow": {
+                        "uuid": "a7e25074-6e35-4e9c-a434-8e738dfb0e5f",
+                        "name": "aaacampaign_wrapper"
+                    }
+                },
+                {
+                    "uuid": "ec10178d-8814-4a4c-b6a9-408959db266e",
+                    "offset": 1410,
+                    "unit": "M",
+                    "event_type": "F",
+                    "delivery_hour": -1,
+                    "message": null,
+                    "relative_to": {
+                        "label": "last interaction",
+                        "key": "last_interaction"
+                    },
+                    "start_mode": "I",
+                    "flow": {
+                        "uuid": "a7e25074-6e35-4e9c-a434-8e738dfb0e5f",
+                        "name": "aaacampaign_wrapper"
+                    }
+                },
+                {
+                    "uuid": "4a3e6688-ca21-4a42-bbf3-0ffbfa7b7d21",
+                    "offset": 4290,
+                    "unit": "M",
+                    "event_type": "F",
+                    "delivery_hour": -1,
+                    "message": null,
+                    "relative_to": {
+                        "label": "last interaction",
+                        "key": "last_interaction"
+                    },
+                    "start_mode": "I",
+                    "flow": {
+                        "uuid": "fcfc61f6-1c8e-45bf-8706-5d8d3fc7c5e1",
+                        "name": "aaahook_message_wrapper"
+                    }
+                }
+            ]
+        }
+    ],
+    "triggers": [
+        {
+            "trigger_type": "K",
+            "flow": {
+                "uuid": "a7e25074-6e35-4e9c-a434-8e738dfb0e5f",
+                "name": "aaacampaign_wrapper"
+            },
+            "groups": [],
+            "exclude_groups": [],
+            "keyword": "testing"
+        }
+    ],
+    "fields": [
+        {
+            "key": "from_timed",
+            "name": "from timed",
+            "type": "text"
+        },
+        {
+            "key": "hook_message",
+            "name": "Hook Message",
+            "type": "text"
+        },
+        {
+            "key": "last_interaction",
+            "name": "last interaction",
+            "type": "datetime"
+        },
+        {
+            "key": "time_last_goal_completed",
+            "name": "Time Last Goal Completed",
+            "type": "text"
+        }
+    ],
+    "groups": [
+        {
+            "uuid": "528f27d1-982d-4ecc-aff8-4c99016a1175",
+            "name": "in program",
+            "query": null
+        },
+        {
+            "uuid": "262c8dd7-0161-4136-8ea2-aa5863957262",
+            "name": "passive drop out",
+            "query": null
+        },
+        {
+            "uuid": "781f9e39-2382-4b3e-9d24-2aace4ccabbe",
+            "name": "rct 5 day",
+            "query": null
+        },
+        {
+            "uuid": "436e43a8-9e98-43fb-b8fd-5332c2dba6d1",
+            "name": "rct booster",
+            "query": null
+        },
+        {
+            "uuid": "c1413233-6836-4cf2-9894-a002146cd09a",
+            "name": "share",
+            "query": null
+        }
+    ]
+}
