@@ -2,7 +2,7 @@ import json
 import argparse
 
 def add_prefix_to_flow_names(json_path, prefix, output_path):
-    with open(json_path, 'r') as f:
+    with open(json_path, 'r',encoding='utf-8') as f:
         data = json.load(f)
     
     # Update flow names
